@@ -1,7 +1,5 @@
 const homeController = require('./controllers/home');
-const categoryController = require('./controllers/category');
-const videoController = require('./controllers/video');
-const testController = require('./controllers/test');
+const playerController = require('./controllers/player');
 
 module.exports = function (router, conf, app) {
   /*
@@ -12,5 +10,5 @@ module.exports = function (router, conf, app) {
   /*
     PLAYER
    */
-  router.get('/player', 'player.view', videoController.stream);
+  router.get('/player', 'player.view', playerController.view);
 }

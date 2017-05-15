@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Zeraflix by BernardJeremy</title>
-  <link rel="icon" type="image/jpg" href="/images/favicon.jpg" />
+  <link rel="icon" type="image/jpg" href="/images/favicon.png" />
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/pagination.css">
 </head>
@@ -21,7 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <header>
         <div class="logo">
           <a href="<%= url('home') %>" title="Home">
-            <img src="/images/sport_logo.jpg" width="220px" height="180px" />
+            <img src="/images/zera-logo.png"/>
           </a>
         </div>
         <div class="clearFloat"> </div>
@@ -32,29 +32,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <div class="clearFloat"></div>
       <div class="part">
         <h2>
-           Page <%= currentPage %> <span class="loading-message">(Loading...)</span>
+         Zeraflix - Page 1 <span class="loading-message">(Loading...)</span>
         </h2>
         <span class="part-bottom"></span>
         <div class="clearFloat"></div>
         <section class="container">
           <nav class="pagination">
-            <a href="<%= url('category.match', {categoryName: categoryActive.name, pageNumber: prevPage}) %>" class="prev">&lt;</a>
-            <a href="<%= url('category.match', {categoryName: categoryActive.name, pageNumber: nextPage}) %>" class="next">&gt;</a>
+            <a id="link-prev" href="#" data-offset="0" class="prev">&lt;</a>
+            <a id="link-next" href="#" data-offset="0" class="next">&gt;</a>
           </nav>
         </section>
       </div>
       <footer>
         <div class="clearFloat"></div>
         <div class="copy">
-          <p>&copy; Zeraflix - All Rights Reserved | Design by <a href="http://w3layouts.com">W3Layouts</a></p>
+          <p>&copy; Zeraflix - All Rights Reserved</a></p>
         </div>
       </footer>
     </div>
     <div class="clearFloat"></div>
   </div>
+
   <script src="/jquery/jquery.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/js/socket.js"></script>
+
+  <script>
+    var client_id = '<%= client_id %>';
+    var redirect_uri = '<%= redirect_uri %>';
+  </script>
+
 </body>
 
 </html>

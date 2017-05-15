@@ -29,7 +29,6 @@ module.exports = function initExpress(conf) {
   app.set('view engine', 'ejs');
   app.use(express.static(__dirname + '/../public'));
   app.use('/jquery', express.static(__dirname + '/../node_modules/jquery/dist/'));
-  app.use('/socket.io', express.static(__dirname + '/../node_modules/socket.io-client/'));
 
   module.exports.app = app;
   return app;

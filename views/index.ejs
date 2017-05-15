@@ -1,0 +1,60 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Zeraflix by BernardJeremy</title>
+  <link rel="icon" type="image/jpg" href="/images/favicon.jpg" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/pagination.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="sidebar">
+      <header>
+        <div class="logo">
+          <a href="<%= url('home') %>" title="Home">
+            <img src="/images/sport_logo.jpg" width="220px" height="180px" />
+          </a>
+        </div>
+        <div class="clearFloat"> </div>
+      </header>
+      <div class="clearFloat"></div>
+    </div>
+    <div class="content">
+      <div class="clearFloat"></div>
+      <div class="part">
+        <h2>
+           Page <%= currentPage %> <span class="loading-message">(Loading...)</span>
+        </h2>
+        <span class="part-bottom"></span>
+        <div class="clearFloat"></div>
+        <section class="container">
+          <nav class="pagination">
+            <a href="<%= url('category.match', {categoryName: categoryActive.name, pageNumber: prevPage}) %>" class="prev">&lt;</a>
+            <a href="<%= url('category.match', {categoryName: categoryActive.name, pageNumber: nextPage}) %>" class="next">&gt;</a>
+          </nav>
+        </section>
+      </div>
+      <footer>
+        <div class="clearFloat"></div>
+        <div class="copy">
+          <p>&copy; Zeraflix - All Rights Reserved | Design by <a href="http://w3layouts.com">W3Layouts</a></p>
+        </div>
+      </footer>
+    </div>
+    <div class="clearFloat"></div>
+  </div>
+  <script src="/jquery/jquery.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.js"></script>
+</body>
+
+</html>

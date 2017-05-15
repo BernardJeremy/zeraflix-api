@@ -1,0 +1,37 @@
+{
+  "name": "zeraflix",
+  "version": "1.0.0",
+  "description": "Web server dedicated to watch and Zerator VOD",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BernardJeremy/zeraflix.git"
+  },
+  "author": "Jeremy Bernard <jeremy@bernard.sh>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BernardJeremy/zeraflix/issues"
+  },
+  "homepage": "https://github.com/BernardJeremy/zeraflix#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.4.1",
+    "express": "^4.12.4",
+    "helmet": "^2.1.2",
+    "jquery": "^3.0.0",
+    "morgan": "^1.7.0",
+    "named-routes": "^2.0.5",
+    "request": "^2.72.0",
+    "request-promise": "^3.0.0",
+    "socket.io": "^1.4.8",
+    "socket.io-client": "^1.4.8",
+    "strftime": "^0.9.2"
+  },
+  "devDependencies": {
+    "@glimpse/glimpse": "^0.20.6"
+  }
+}

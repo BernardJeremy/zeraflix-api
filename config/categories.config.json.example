@@ -1,0 +1,13 @@
+{
+  "categories":[
+    {"label":"All Categories", "name":"allcategories", "id": ""},
+    {"label":"American Football", "name":"americanfootball", "id": "115"},
+    {"label":"Baseball", "name":"baseball", "id": "116"},
+    {"label":"Basketball", "name":"basketball", "id": "114"},
+    {"label":"Football", "name":"football", "id": "119"},
+    {"label":"Hockey", "name":"hockey", "id": "117"},
+    {"label":"Motorsports", "name":"motorsports", "id": "1110"},
+    {"label":"Rugby", "name":"rugby", "id": "120"},
+    {"label":"Other Sports", "name":"otherports", "id": "1150"}
+  ]
+}

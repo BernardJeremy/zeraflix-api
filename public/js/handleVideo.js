@@ -2,6 +2,25 @@ var MONTH_NAMES = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
+function displayLink(link) {
+  console.log(link);
+
+  $.ajax({
+    type: "GET",
+    url: "/decode",
+    data: "url=" + link,
+    processData: false,
+    success: function (data) {
+      console.log(data);
+      $('#dialog-message').html(data);
+      $( "#dialog-message" ).dialog( "open" );
+    },
+    error: function (err) {
+      console.error(err);
+    }
+  });
+}
+
 function padZero(integer) {
   return integer < 10 ? '0' + integer : '' + integer
 };
@@ -13,7 +32,7 @@ function dateToString(date) {
 function formatVideoData(video) {
   var ret = {};
 
-  ret.viewLink = '/player?url=' + video.url;
+  ret.url = video.url;
   ret.label = video.title;
   ret.preview = video.preview;
   ret.preview = video.preview;
@@ -52,9 +71,9 @@ $(function () {
           data.videos.forEach(function (video) {
             var formattedData = formatVideoData(video);
             var html = ejs.render(template, { video: formattedData });
-            //console.log(html);
             renderVideo(html);
           });
+          $('.loading-message').html('');
         },
         error: function (err) {
           console.error(err);

@@ -1,5 +1,5 @@
 const homeController = require('./controllers/home');
-const playerController = require('./controllers/player');
+const decodeController = require('./controllers/decode');
 
 module.exports = function (router, conf, app) {
   /*
@@ -8,7 +8,7 @@ module.exports = function (router, conf, app) {
   router.get('/', 'home', homeController.view);
 
   /*
-    PLAYER
+    URL API
    */
-  router.get('/player', 'player.view', playerController.view);
+  router.get('/decode', 'decode.exec', decodeController.exec);
 }

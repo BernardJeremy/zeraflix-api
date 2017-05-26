@@ -2,6 +2,6 @@
   "port": 8080,
   "debug": false,
   "client_id": "",
-  "redirect_uri": "http://localhost",
+  "host_oauth" : "",
   "secret": "mysupersecretkey"
 }

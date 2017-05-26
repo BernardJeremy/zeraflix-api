@@ -2,16 +2,15 @@ var MONTH_NAMES = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
-function displayLink(link) {
-  console.log(link);
+var CURRENT_OFFSET = 0
 
+function displayLink(link) {
   $.ajax({
     type: "GET",
     url: "/decode",
     data: "url=" + link,
     processData: false,
     success: function (data) {
-      console.log(data);
       $('#dialog-message').html(data);
       $( "#dialog-message" ).dialog( "open" );
     },
@@ -51,33 +50,54 @@ function renderVideo(html) {
   });
 }
 
+function populateVideo(template, offset) {
+  $('.page-number').html((offset / 12) + 1);
+  $('.loading-message').html('(Loading...)');  
+  $.ajax({
+    type: "GET",
+    beforeSend: function (request) {
+      request.setRequestHeader("client-id", client_id);
+    },
+    url: "https://api.twitch.tv/kraken/channels/zerator/videos",
+    data: "limit=12&offset=" + offset + "&broadcast_type=archive%2Cupload%2Chighlight&sort=time",
+    processData: false,
+    success: function (data) {
+      data.videos.forEach(function (video) {
+        var formattedData = formatVideoData(video);
+        var html = ejs.render(template, { video: formattedData });
+        renderVideo(html);
+      });
+      $('.loading-message').html('');
+    },
+    error: function (err) {
+      console.error(err);
+    }
+  });
+}
+
 $(function () {
   $.ajax({
     type: "GET",
     url: "/templates/thumbnail.ejs",
     processData: false,
     success: function (template) {
-      console.log(template);
-      $.ajax({
-        type: "GET",
-        beforeSend: function (request) {
-          request.setRequestHeader("client-id", client_id);
-        },
-        url: "https://api.twitch.tv/kraken/channels/zerator/videos",
-        data: "limit=12&offset=0&broadcast_type=archive%2Cupload%2Chighlight&sort=time",
-        processData: false,
-        success: function (data) {
-          console.log(data);
-          data.videos.forEach(function (video) {
-            var formattedData = formatVideoData(video);
-            var html = ejs.render(template, { video: formattedData });
-            renderVideo(html);
-          });
-          $('.loading-message').html('');
-        },
-        error: function (err) {
-          console.error(err);
+      populateVideo(template, 0);
+
+      $( "#link-prev" ).click(function(e) {
+        e.preventDefault();
+        if (CURRENT_OFFSET === 0) {
+          return;
         }
+        CURRENT_OFFSET -= 12 ;
+        $( ".grid" ).remove();
+        populateVideo(template, CURRENT_OFFSET);
+      });
+
+      $( "#link-next" ).click(function(e) {
+        e.preventDefault();
+        CURRENT_OFFSET += 12 ;
+        $( ".grid" ).remove();
+        populateVideo(template, CURRENT_OFFSET);
       });
     },
     error: function (err) {

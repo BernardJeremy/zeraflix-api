@@ -1,7 +1,7 @@
 {
   "name": "zeraflix",
   "version": "1.0.0",
-  "description": "Web server dedicated to watch and Zerator VOD",
+  "description": "Web server dedicated to watch Zerator VOD",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

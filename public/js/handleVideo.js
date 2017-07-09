@@ -37,7 +37,7 @@ function padZero(integer) {
 };
 
 function dateToString(date) {
-  return (MONTH_NAMES[date.getMonth()]) + ' ' + (padZero(date.getDate())) + ', ' + date.getFullYear();
+  return (MONTH_NAMES[date.getMonth()]) + ' ' + (padZero(date.getDate())) + ', ' + date.getFullYear() + ' - ' + (padZero(date.getHours())) + ':' + (padZero(date.getMinutes()));
 };
 
 function formatVideoData(video) {
@@ -72,7 +72,7 @@ function populateVideo(template, offset) {
       request.setRequestHeader("client-id", client_id);
     },
     url: "https://api.twitch.tv/kraken/channels/zerator/videos",
-    data: "limit=12&offset=" + offset + "&broadcast_type=archive%2Cupload%2Chighlight&sort=time",
+    data: "limit=12&offset=" + offset + "&broadcast_type=archive&sort=time",
     processData: false,
     success: function (data) {
       data.videos.forEach(function (video) {

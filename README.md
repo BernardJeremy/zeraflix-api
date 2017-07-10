@@ -1,2 +1,2 @@
 # zeraflix
-Web server dedicated to watch Zerator VOD
+Web server dedicated to retrieve and watch Twitch VOD

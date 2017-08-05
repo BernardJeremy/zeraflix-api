@@ -15,8 +15,11 @@ module.exports = function initExpress(conf) {
   let app = express();
   app.use(helmet());
   app.use('/', expressRouter);
-  app.use(morgan('dev'));
-
+  
+  if (conf.debug) {
+    app.use(morgan('dev'));
+  }
+  
   // init all routes
   require('../routes')(expressRouter, conf, app);
 

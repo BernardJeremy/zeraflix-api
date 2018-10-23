@@ -3,10 +3,10 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 
 // init express
-let app = express();
+const app = express();
 app.use(helmet());
 
-if (process.env.DEBUG) {
+if (process.env.DEBUG === 'true') {
   app.use(morgan('dev'));
 }
 

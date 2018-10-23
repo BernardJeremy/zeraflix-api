@@ -1,7 +1,7 @@
 const getTwitchLink = require('node-twitch-link');
 
-exports.exec = function (req, res) {
-  getTwitchLink(req.query.url, {oauth_token: process.env.HOST_OAUTH}).then(function (ret) {
+exports.exec = (req, res) => {
+  getTwitchLink(req.query.url, {oauth_token: process.env.HOST_OAUTH}).then((ret) => {
     let html = ''
     for (let i in ret) {
       html += '<p style="text-align: center;">'
@@ -9,7 +9,7 @@ exports.exec = function (req, res) {
         + '</p>';
     }
     res.send(html);
-  }).catch(function (err) {
+  }).catch((err) => {
     console.log("Error : ", err.message);
     res.send('<p>Aucun lien trouvé</p>');
   });

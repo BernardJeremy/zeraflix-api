@@ -1,14 +1,14 @@
 const homeController = require('./controllers/home');
 const decodeController = require('./controllers/decode');
 
-module.exports = function (router) {
+module.exports = function (app) {
   /*
     HOME
    */
-  router.get('/', 'home', homeController.view);
+  app.get('/', homeController.view);
 
   /*
     URL API
    */
-  router.get('/decode', 'decode.exec', decodeController.exec);
+  app.get('/decode', decodeController.exec);
 }

@@ -17,19 +17,13 @@
   },
   "homepage": "https://github.com/BernardJeremy/zeraflix#readme",
   "dependencies": {
-    "body-parser": "^1.14.2",
-    "cookie-parser": "^1.4.1",
     "dotenv": "^6.1.0",
     "ejs": "^2.4.1",
     "express": "^4.12.4",
     "helmet": "^2.1.2",
     "jquery": "^3.0.0",
     "morgan": "^1.7.0",
-    "named-routes": "^2.0.5",
-    "node-twitch-link": "github:bernardjeremy/node-twitch-link",
-    "request": "^2.72.0",
-    "request-promise": "^3.0.0",
-    "strftime": "^0.9.2"
+    "node-twitch-link": "github:bernardjeremy/node-twitch-link"
   },
   "devDependencies": {
     "@glimpse/glimpse": "^0.20.6"

@@ -3,9 +3,11 @@ const Router = require('named-routes');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const helmet = require('helmet')
+const helmet = require('helmet');
 
-module.exports = function initExpress(conf) {
+const initRouter = require('../routes');
+
+module.exports = function initExpress() {
 
   let expressRouter = express.Router();
   let _router = new Router();
@@ -14,17 +16,17 @@ module.exports = function initExpress(conf) {
   // init express
   let app = express();
   app.use(helmet());
+
+  // init all routes
   app.use('/', expressRouter);
-  
-  if (conf.debug) {
+  initRouter(expressRouter);
+
+  if (process.env.DEBUG) {
     app.use(morgan('dev'));
   }
-  
-  // init all routes
-  require('../routes')(expressRouter, conf, app);
 
   // init global middleware
-  app.use(cookieParser(conf.secret));
+  app.use(cookieParser(process.env.SECRET));
   app.use(bodyParser.urlencoded({ extended: true }));
   _router.registerAppHelpers(app);
 

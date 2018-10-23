@@ -1,7 +1,7 @@
-const conf = require('./config/config.json');
+require('dotenv').config();
 
-let app = require('./libs/express')(conf);
+let app = require('./libs/express')(process.env);
 
-let server = app.listen(conf.port, function () {
-  console.log('Listening on port ' + conf.port);
+let server = app.listen(process.env.PORT, function () {
+  console.log('Listening on port ' + process.env.PORT);
 });

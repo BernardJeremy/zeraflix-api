@@ -1,7 +1,0 @@
-{
-  "port": 8080,
-  "debug": false,
-  "client_id": "",
-  "host_oauth" : "",
-  "secret": "mysupersecretkey"
-}

@@ -1,7 +1,7 @@
 const homeController = require('./controllers/home');
 const decodeController = require('./controllers/decode');
 
-module.exports = function (router, conf, app) {
+module.exports = function (router) {
   /*
     HOME
    */

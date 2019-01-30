@@ -1,15 +1,6 @@
 require('dotenv').config();
 
-const v1Router = require('./api/v1')
-
 const fastify = require('./libs/fatify');
-const swagger = require('./libs/swagger');
-
-fastify.register(require('fastify-swagger'), swagger.options)
-
-v1Router.forEach((route, index) => {
-  fastify.route(route)
- })
 
 const start = async () => {
   try {

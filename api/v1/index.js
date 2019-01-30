@@ -9,7 +9,6 @@ const routes = [
     handler: async (req, reply) => {
       try {
         const contentUrl = req.query.twitchUrl;
-        console.log(req.query);
         if (!contentUrl) {
           throw boom.badRequest(new Error('[twitchUrl] parameter is missing !'));
         }

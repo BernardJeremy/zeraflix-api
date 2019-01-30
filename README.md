@@ -1,2 +1,2 @@
 # zeraflix
-Web server dedicated to retrieve and watch Twitch VOD
+REST API dedicated to retrieve Twitch VOD & Stream content link

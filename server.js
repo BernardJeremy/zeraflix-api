@@ -1,8 +1,25 @@
 require('dotenv').config();
 
-const app = require('./libs/express');
-require('./routes')(app);
+const v1Router = require('./api/v1')
 
-const server = app.listen(process.env.PORT, () => {
-  console.log('Listening on port ' + process.env.PORT);
-});
+const fastify = require('./libs/fatify');
+const swagger = require('./libs/swagger');
+
+fastify.register(require('fastify-swagger'), swagger.options)
+
+v1Router.forEach((route, index) => {
+  fastify.route(route)
+ })
+
+const start = async () => {
+  try {
+    await fastify.listen(process.env.PORT);
+    fastify.swagger();
+    fastify.log.info(`server listening on ${fastify.server.address().port}`);
+  } catch (err) {
+    fastify.log.error(err);
+    process.exit(1);
+  }
+}
+
+start();

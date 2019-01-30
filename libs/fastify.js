@@ -4,7 +4,7 @@ const fastify = require('fastify')({
 
 const v1Router = require('../api/v1')
 
-const swagger = require('../libs/swagger');
+const swagger = require('./swagger');
 
 fastify.register(require('fastify-swagger'), swagger.options)
 

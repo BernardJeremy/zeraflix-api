@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const fastify = require('./libs/fatify');
+const fastify = require('./libs/fastify');
 
 const start = async () => {
   try {

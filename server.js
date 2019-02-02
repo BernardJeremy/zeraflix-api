@@ -1,8 +1,16 @@
 require('dotenv').config();
 
-const app = require('./libs/express');
-require('./routes')(app);
+const fastify = require('./libs/fastify');
 
-const server = app.listen(process.env.PORT, () => {
-  console.log('Listening on port ' + process.env.PORT);
-});
+const start = async () => {
+  try {
+    await fastify.listen(process.env.PORT);
+    fastify.swagger();
+    fastify.log.info(`server listening on ${fastify.server.address().port}`);
+  } catch (err) {
+    fastify.log.error(err);
+    process.exit(1);
+  }
+}
+
+start();

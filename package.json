@@ -1,25 +1,24 @@
 {
   "name": "zeraflix",
   "version": "1.0.0",
-  "description": "Web server dedicated to watch Zerator VOD",
+  "description": "Web server dedicated to retrieve and watch Twitch VOD",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BernardJeremy/zeraflix.git"
+    "url": "git+https://github.com/BernardJeremy/zeraflix-api.git"
   },
   "author": "Jeremy Bernard <jeremy@bernard.sh>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/BernardJeremy/zeraflix/issues"
+    "url": "https://github.com/BernardJeremy/zeraflix-api/issues"
   },
-  "homepage": "https://github.com/BernardJeremy/zeraflix#readme",
+  "homepage": "https://github.com/BernardJeremy/zeraflix-api#readme",
   "dependencies": {
     "boom": "^7.3.0",
     "dotenv": "^6.1.0",
-    "ejs": "^2.4.1",
     "fastify": "^1.13.4",
     "fastify-cors": "^1.0.0",
     "fastify-swagger": "^1.1.0",

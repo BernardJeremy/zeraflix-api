@@ -14,11 +14,7 @@ const routes = [
         }
 
         const contentLinkArray = await getTwitchLinkService(contentUrl);
-        const ret = [];
-        for (let i in contentLinkArray) {
-          ret.push(contentLinkArray[i]);
-        }
-        reply.send(ret);
+        reply.send(contentLinkArray);
       } catch (err) {
         throw err;
       }

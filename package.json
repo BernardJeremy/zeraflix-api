@@ -24,8 +24,5 @@
     "fastify-swagger": "^1.1.0",
     "jquery": "^3.0.0",
     "node-twitch-link": "github:bernardjeremy/node-twitch-link"
-  },
-  "devDependencies": {
-    "@glimpse/glimpse": "^0.20.6"
   }
 }

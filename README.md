@@ -6,7 +6,7 @@ REST API dedicated to retrieve Twitch VOD & Stream content link.
 
 ## Environnements configuration
 - `HOST_OAUTH` : Twitch OAUTH token, needed to use Twitch API.
-- `CLIENT_HOST` : Host of client application, use to configure CORS. 
+- `CLIENT_HOST` : Host of client application, needed to configure CORS. 
 - `PORT` : Target port to bind server.
 
 ## TO-DO

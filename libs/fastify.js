@@ -9,7 +9,7 @@ const swagger = require('./swagger');
 
 fastify.register(require('fastify-swagger'), swagger.options);
 
-const allowedOrigin = process.env.DEBUG ? true : process.env.CLIENT_HOST;
+const allowedOrigin = process.env.DEBUG ? true : process.env.CLIENT_HOST.split(';');
 fastify.register(require('fastify-cors'), { origin: allowedOrigin});
 
 v1Router.forEach((route) => {

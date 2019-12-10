@@ -1,6 +1,7 @@
 const GetTwitchLink = require('node-twitch-link');
 
-module.exports = async (contentUrl) => await GetTwitchLink(
+module.exports = async (contentUrl) => GetTwitchLink(
   contentUrl, {
-    oauth_token: process.env.HOST_OAUTH
-  });
+    oauth_token: process.env.HOST_OAUTH,
+  },
+);
